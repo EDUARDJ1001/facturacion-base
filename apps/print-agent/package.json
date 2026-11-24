@@ -1,0 +1,21 @@
+{
+  "name": "print-agent",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Agente local de impresión: lista las impresoras de Windows de este equipo e imprime tickets y documentos carta sin diálogo.",
+  "main": "dist/src/agent.js",
+  "scripts": {
+    "dev": "tsx watch src/agent.ts",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/src/agent.js",
+    "build:exe": "node scripts/build-exe.mjs",
+    "build:caja-installer": "node scripts/build-caja-installer.mjs"
+  },
+  "dependencies": {
+    "pdf-to-printer": "^5.8.1"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2",
+    "postject": "^1.0.0-alpha.6"
+  }
+}

@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 245 247 251;
+  --foreground: 15 23 42;
+  --card: 255 255 255;
+  --border: 216 225 238;
+  --muted: 100 116 139;
+  --accent: 236 242 255;
+  --brand: 15 23 42;
+  --brand-alt: 51 65 85;
+}
+
+* {
+  border-color: rgb(var(--border));
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at top left, rgba(var(--brand), 0.16), transparent 28%),
+    radial-gradient(circle at top right, rgba(var(--brand-alt), 0.12), transparent 24%),
+    linear-gradient(180deg, #f6f8fc 0%, #edf3fb 100%);
+  color: rgb(var(--foreground));
+  font-family: "Aptos", "Segoe UI", "Trebuchet MS", sans-serif;
+}
+
+main {
+  min-height: 100vh;
+}
+
+/* Texto seleccionado: azul que se ve sobre fondos claros y oscuros (el color de la
+   empresa suele ser oscuro y no se notaría sobre paneles oscuros). */
+::selection {
+  background: rgb(59 130 246 / 0.35);
+  color: inherit;
+}
+
+@layer components {
+  .surface {
+    @apply rounded-[22px] border bg-card/90 shadow-soft backdrop-blur sm:rounded-[28px];
+  }
+
+  .section-title {
+    @apply text-xs uppercase tracking-[0.18em] text-muted sm:text-sm sm:tracking-[0.25em];
+  }
+
+  .grid-shell {
+    @apply mx-auto w-full max-w-7xl px-3 py-4 sm:px-5 sm:py-6 lg:px-8;
+  }
+}
+
+@media (max-width: 639px) {
+  .responsive-table,
+  .responsive-table thead,
+  .responsive-table tbody,
+  .responsive-table tr,
+  .responsive-table td {
+    display: block;
+  }
+
+  .responsive-table thead {
+    display: none;
+  }
+
+  .responsive-table tbody {
+    display: grid;
+    gap: 0.875rem;
+  }
+
+  .responsive-table tbody tr {
+    display: grid;
+    gap: 0.75rem;
+    border: 1px solid rgb(var(--border));
+    border-radius: 20px;
+    background: rgb(var(--card));
+    padding: 1rem;
+    box-shadow: 0 14px 34px rgba(15, 23, 42, 0.06);
+  }
+
+  .responsive-table tbody td {
+    display: grid;
+    grid-template-columns: minmax(76px, 0.75fr) minmax(0, 1.25fr);
+    align-items: start;
+    gap: 0.75rem;
+    padding: 0 !important;
+    text-align: left !important;
+    overflow-wrap: anywhere;
+  }
+
+  .responsive-table tbody td::before {
+    content: attr(data-label);
+    color: rgb(var(--muted));
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    line-height: 1.35;
+    text-transform: uppercase;
+  }
+
+  .responsive-table tbody td[data-label="Acciones"] {
+    grid-template-columns: 1fr;
+  }
+
+  .responsive-table tbody td[data-label="Acciones"]::before {
+    display: none;
+  }
+
+  .responsive-table tbody td[data-label="Acciones"] > div {
+    display: grid;
+    gap: 0.5rem;
+    justify-content: stretch;
+  }
+
+  .responsive-table tbody td[data-label="Acciones"] button,
+  .responsive-table tbody td[data-label="Acciones"] a {
+    width: 100%;
+  }
+}
+
+@media print {
+  body {
+    background: white;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+}

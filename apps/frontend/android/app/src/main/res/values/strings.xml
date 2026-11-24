@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Facturacion SIS</string>
+    <string name="title_activity_main">Facturacion SIS</string>
+    <string name="package_name">com.facturacionsis.app</string>
+    <string name="custom_url_scheme">com.facturacionsis.app</string>
+</resources>

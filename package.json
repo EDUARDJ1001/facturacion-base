@@ -1,0 +1,38 @@
+{
+  "name": "facturacion-base",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sistema web de facturacion multiempresa",
+  "license": "ISC",
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev:backend": "npm run dev --workspace backend",
+    "dev:frontend": "npm run dev --workspace frontend",
+    "dev:print-agent": "npm run dev --workspace print-agent",
+    "build:print-agent-exe": "npm run build:exe --workspace print-agent",
+    "build:exe": "npm run build:exe --workspace backend",
+    "build:caja-installer": "npm run build:caja-installer --workspace print-agent",
+    "build:instaladores": "npm run build:caja-installer",
+    "install:print-agent": "powershell -ExecutionPolicy Bypass -File ./scripts/install-print-agent.ps1",
+    "start:backend": "npm run start --workspace backend",
+    "start:frontend": "npm run start --workspace frontend",
+    "db:migrate": "npm run db:actualizar --workspace backend --",
+    "build": "npm run build --workspace backend && npm run build --workspace frontend",
+    "build:prod": "powershell -ExecutionPolicy Bypass -File scripts/build-production.ps1",
+    "start:prod": "powershell -ExecutionPolicy Bypass -File scripts/start-production.ps1",
+    "seed": "npm run seed --workspace backend",
+    "seed:test": "npm run seed:test --workspace backend",
+    "verificar": "npm run verificar --workspace backend --",
+    "publicar:version": "npm run publicar:version --workspace backend --",
+    "clave:actualizaciones": "npm run clave:actualizaciones --workspace backend --",
+    "db:actualizar": "npm run db:actualizar --workspace backend --",
+    "db:script-sqlserver": "npm run db:script-sqlserver --workspace backend --",
+    "db:esquema": "npm run db:esquema --workspace backend",
+    "db:regenerar": "npm run db:regenerar --workspace backend"
+  },
+  "facturacion": {
+    "updatesUrl": ""
+  }
+}

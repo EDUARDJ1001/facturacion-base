@@ -1,0 +1,31 @@
+node_modules
+dist
+.env
+.env.*
+!.env.example
+!.env.verificar.example
+.env.local
+.next
+coverage
+*.log
+apps/backend/dist
+apps/frontend/.next
+apps/frontend/.next-dev
+apps/frontend/out
+apps/frontend/android/app/build
+apps/frontend/android/app/src/main/assets/public
+.android-sdk
+.claude
+.tmp/
+ca.pem
+certs/
+apps/print-agent/dist-exe
+apps/backend/dist-exe
+instaladores/
+
+# Datos reales para importar a mano (RTN, contraseñas cifradas): nunca subir
+datos-importacion/
+
+# Caché de TypeScript (se regenera en cada compilación)
+*.tsbuildinfo
+
